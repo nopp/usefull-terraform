@@ -29,6 +29,10 @@ output "BE-ZC_id" {
 output "DB-ZA_id" {
   value = module.vpc.DB-ZA_id
 }
+  
+output "DB-ZB_id" {
+  value = module.vpc.DB-ZB_id
+}
 
 output "DB-ZC_id" {
   value = module.vpc.DB-ZC_id
