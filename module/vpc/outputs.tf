@@ -30,6 +30,10 @@ output "DB-ZA_id" {
   value = aws_subnet.DB-ZA.id
 }
 
+output "DB-ZB_id" {
+  value = aws_subnet.DB-ZB.id
+}
+
 output "DB-ZC_id" {
   value = aws_subnet.DB-ZC.id
 }
