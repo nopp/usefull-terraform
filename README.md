@@ -18,6 +18,7 @@ BE-ZA_id = subnet-06cef24909c044f9f
 BE-ZB_id = subnet-0535ac5a7fa31e052
 BE-ZC_id = subnet-0d8237054b5b77fa7
 DB-ZA_id = subnet-08b090664e3f122d6
+DB-ZB_id = subnet-01fdg21cad734395c
 DB-ZC_id = subnet-02ede21cad916393a
 FE-ZA_id = subnet-098daee0a0a4f7862
 FE-ZB_id = subnet-0d4f08696d42a25d2
