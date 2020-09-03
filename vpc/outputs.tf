@@ -2,6 +2,10 @@ output "VPC_id" {
   value = module.vpc.VPC_id
 }
 
+output "SUBNET_list" {
+  value = module.vpc.SUBNET_list
+}
+
 output "FE-ZA_id" {
   value = module.vpc.FE-ZA_id
 }
