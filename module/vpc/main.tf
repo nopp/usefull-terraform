@@ -5,10 +5,10 @@ provider "aws" {
 
 ### VPC
 resource "aws_vpc" "VPC" {
-  cidr_block           = var.VPC.CIDR
-  enable_dns_hostnames = true
-  enable_dns_support   = true
-  instance_tenancy     = "default"
+  cidr_block                = var.VPC.CIDR
+  enable_dns_hostnames      = true
+  enable_dns_support        = true
+  instance_tenancy          = "default"
   tags = {
     Environment = var.VPC.Env
     Name        = var.VPC.Name
@@ -72,7 +72,7 @@ resource "aws_route_table" "OUT-IGW" {
 resource "aws_subnet" "FE-ZA" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.FE-ZA.CIDR
-  availability_zone       = "us-east-1a"
+  availability_zone       = var.SUBNETS.FE-ZA.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -84,7 +84,7 @@ resource "aws_subnet" "FE-ZA" {
 resource "aws_subnet" "FE-ZB" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.FE-ZB.CIDR
-  availability_zone       = "us-east-1b"
+  availability_zone       = var.SUBNETS.FE-ZB.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -96,7 +96,7 @@ resource "aws_subnet" "FE-ZB" {
 resource "aws_subnet" "FE-ZC" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.FE-ZC.CIDR
-  availability_zone       = "us-east-1c"
+  availability_zone       = var.SUBNETS.FE-ZC.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -108,7 +108,7 @@ resource "aws_subnet" "FE-ZC" {
 resource "aws_subnet" "DB-ZA" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.DB-ZA.CIDR
-  availability_zone       = "us-east-1a"
+  availability_zone       = var.SUBNETS.DB-ZA.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -120,7 +120,7 @@ resource "aws_subnet" "DB-ZA" {
 resource "aws_subnet" "DB-ZB" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.DB-ZB.CIDR
-  availability_zone       = "us-east-1b"
+  availability_zone       = var.SUBNETS.DB-ZB.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -132,7 +132,7 @@ resource "aws_subnet" "DB-ZB" {
 resource "aws_subnet" "DB-ZC" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.DB-ZC.CIDR
-  availability_zone       = "us-east-1c"
+  availability_zone       = var.SUBNETS.DB-ZC.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -144,7 +144,7 @@ resource "aws_subnet" "DB-ZC" {
 resource "aws_subnet" "BE-ZA" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.BE-ZA.CIDR
-  availability_zone       = "us-east-1a"
+  availability_zone       = var.SUBNETS.BE-ZA.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -156,7 +156,7 @@ resource "aws_subnet" "BE-ZA" {
 resource "aws_subnet" "BE-ZB" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.BE-ZB.CIDR
-  availability_zone       = "us-east-1b"
+  availability_zone       = var.SUBNETS.BE-ZB.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
@@ -168,7 +168,7 @@ resource "aws_subnet" "BE-ZB" {
 resource "aws_subnet" "BE-ZC" {
   vpc_id                  = aws_vpc.VPC.id
   cidr_block              = var.SUBNETS.BE-ZC.CIDR
-  availability_zone       = "us-east-1c"
+  availability_zone       = var.SUBNETS.BE-ZC.AZone
   map_public_ip_on_launch = false
   tags = {
     "Environment" = var.VPC.Env
