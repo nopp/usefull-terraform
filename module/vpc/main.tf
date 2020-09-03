@@ -1,7 +1,7 @@
 ### Provider
-provider "aws" {
-  region = var.VPC.Region
-}
+# provider "aws" {
+#   region = var.VPC.Region
+# }
 
 ### VPC
 resource "aws_vpc" "VPC" {

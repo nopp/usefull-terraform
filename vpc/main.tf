@@ -1,7 +1,11 @@
+provider "aws" {
+  region = "us-east-2"
+}
+
 terraform {
   backend "s3" {
     bucket = "pvt-terraform-poc"
-    key    = "prod-state"
+    key    = "us-east-2/vpc"
     region = "sa-east-1"
   }
 }
@@ -9,7 +13,3 @@ terraform {
 module "vpc" {
   source = "../module/vpc"
 }
-
-# module "sg" {
-#   source = "../module/sg"
-# }
