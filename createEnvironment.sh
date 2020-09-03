@@ -44,8 +44,8 @@ function createIam {
 function createEks {
     echo "Creating EKS ..."
     createVpc
-    # createIam
-    # createSg
+    createIam
+    createSg
     cd vpc
     # Subnet Private
     declare -a subnetsPrivate

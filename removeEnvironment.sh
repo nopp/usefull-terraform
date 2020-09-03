@@ -25,6 +25,12 @@ function removeRds {
     terraform destroy
 }
 
+function removeEks {
+    echo "Removig EKS ..."
+    cd ../eks
+    eks delete cluster # <---- not funcional ;) just example
+}
+
 if [ -z $1 ]; then
     echo "Usage: ./removeEnvironment [all|rds|dynamodb|sg|eks]"
     exit
