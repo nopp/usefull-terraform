@@ -35,4 +35,5 @@ resource "aws_db_instance" "pgsql" {
   max_allocated_storage = 50
   parameter_group_name  = "default.postgres9.6"
   db_subnet_group_name  = aws_db_subnet_group.DB-SUBNET.name
+  skip_final_snapshot   = true
 }
