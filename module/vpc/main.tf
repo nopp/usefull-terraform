@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "IGW" {
 }
 
 ### Route table
-resource "aws_route_table" "OUT-NAT" {
+resource "aws_route_table" "RT-NAT" {
   vpc_id = aws_vpc.VPC.id
 
   route {
@@ -49,12 +49,12 @@ resource "aws_route_table" "OUT-NAT" {
   }
 
   tags = {
-    Name = format("OUT-NAT-%s", var.VPC.Name)
+    Name = format("RT-NAT-%s", var.VPC.Name)
     Environment = var.VPC.Env
   }
 }
 
-resource "aws_route_table" "OUT-IGW" {
+resource "aws_route_table" "RT-IGW" {
   vpc_id = aws_vpc.VPC.id
 
   route {
@@ -63,7 +63,7 @@ resource "aws_route_table" "OUT-IGW" {
   }
 
   tags = {
-    Name = format("OUT-IGW-%s", var.VPC.Name)
+    Name = format("RT-IGW-%s", var.VPC.Name)
     Environment = var.VPC.Env
   }
 }
@@ -180,45 +180,45 @@ resource "aws_subnet" "BE-ZC" {
 ### Route Table association
 resource "aws_route_table_association" "FE-ZA-IGW" {
   subnet_id      = aws_subnet.FE-ZA.id
-  route_table_id = aws_route_table.OUT-IGW.id
+  route_table_id = aws_route_table.RT-IGW.id
 }
 
 resource "aws_route_table_association" "FE-ZB-IGW" {
   subnet_id      = aws_subnet.FE-ZB.id
-  route_table_id = aws_route_table.OUT-IGW.id
+  route_table_id = aws_route_table.RT-IGW.id
 }
 
 resource "aws_route_table_association" "FE-ZC-IGW" {
   subnet_id      = aws_subnet.FE-ZC.id
-  route_table_id = aws_route_table.OUT-IGW.id
+  route_table_id = aws_route_table.RT-IGW.id
 }
 
 resource "aws_route_table_association" "DB-ZA-NAT" {
   subnet_id      = aws_subnet.DB-ZA.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
 
 resource "aws_route_table_association" "DB-ZB-NAT" {
   subnet_id      = aws_subnet.DB-ZB.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
 
 resource "aws_route_table_association" "DB-ZC-NAT" {
   subnet_id      = aws_subnet.DB-ZC.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
 
 resource "aws_route_table_association" "BE-ZA-NAT" {
   subnet_id      = aws_subnet.BE-ZA.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
 
 resource "aws_route_table_association" "BE-ZB-NAT" {
   subnet_id      = aws_subnet.BE-ZB.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
 
 resource "aws_route_table_association" "BE-ZC-NAT" {
   subnet_id      = aws_subnet.BE-ZC.id
-  route_table_id = aws_route_table.OUT-NAT.id
+  route_table_id = aws_route_table.RT-NAT.id
 }
